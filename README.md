@@ -61,4 +61,37 @@ def grava():
     for e in agenda
     arquivo.write(f"{e[0]}#{e[1]}\n")
 def valida_faixa_inteiro(pergunta, inicio, fim):
-  while True
+  while True:
+    try:
+      valor = int(input(pergunta))
+      if inicio <= valor <= fim:
+        return valor
+      except ValueErro:
+        print(f"Valor invalido, favor digitar entre {inicio} e {fim}")
+def menu():
+  print("""
+  1 - Novo
+  2 - Altera
+  3 - Apaga
+  4 - Lista
+  5 - Grava
+  6 - Lê
+  
+  0 - Sair
+""")
+  return valida_faixa_inteiro("Escolha uma opção: ", 0,6)
+while True:
+  if opcao == 0:
+    break
+  elif opcao == 1:
+    novo()
+  elif opcao == 2:
+    altera()
+  elif opcao == 3:
+    apaga()
+  elif opcao == 4:
+    lista()
+  elif opcao == 5:
+    grava()
+  elif opcao == 6:
+    le()
