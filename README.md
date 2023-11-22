@@ -58,15 +58,15 @@ def le():
 def grava():
   nome_arquivo = pede_nome_arquivo()
   with open(nome_arquivo, "w",encoding="utf-8") as arquivo: 
-    for e in agenda
-    arquivo.write(f"{e[0]}#{e[1]}\n")
+    for e in agenda:
+      arquivo.write(f"{e[0]}#{e[1]}\n")
 def valida_faixa_inteiro(pergunta, inicio, fim):
   while True:
     try:
       valor = int(input(pergunta))
       if inicio <= valor <= fim:
         return valor
-      except ValueErro:
+    except ValueErro:
         print(f"Valor invalido, favor digitar entre {inicio} e {fim}")
 def menu():
   print("""
@@ -81,6 +81,7 @@ def menu():
 """)
   return valida_faixa_inteiro("Escolha uma opção: ", 0,6)
 while True:
+  opcao = menu()
   if opcao == 0:
     break
   elif opcao == 1:
@@ -95,3 +96,4 @@ while True:
     grava()
   elif opcao == 6:
     le()
+    
